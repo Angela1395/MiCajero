@@ -12,4 +12,3 @@ También podrá sacar o intruducir dinero en la cuenta de forma digital.
 
 # Diagrama del Banco 
 
-![Diagrama Banco](https://user-images.githubusercontent.com/56442937/116278013-58ab2700-a786-11eb-8f50-0a62ea2d41ea.png)
