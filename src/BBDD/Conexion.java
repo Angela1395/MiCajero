@@ -4,12 +4,12 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 	 static String timeZone = "?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	    static String dbName = "Y9axiNCQbQ";
+	    static String dbName = "5Y1yYvV8n4";
 	    static String host = "remotemysql.com";
 	    static int port = 3306;
 	    static String url = "jdbc:mysql://" + host + ":" + port + "/" + dbName + timeZone;
-	    static String user = "Y9axiNCQbQ";
-	    static String pass = "QspPoK97OC";
+	    static String user = "5Y1yYvV8n4";
+	    static String pass = "OhPOO74e6J";
 	    static String driver = "com.mysql.cj.jdbc.Driver";
 
 	    static Connection conexion;

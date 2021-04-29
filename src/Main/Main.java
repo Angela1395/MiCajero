@@ -2,7 +2,7 @@ package Main;
 
 import java.awt.EventQueue;
 import BBDD.Conexion;
-import Vista.Principal;
+import Vista.Login;
 
 public class Main {
 	public static void main(String[] args) {
@@ -11,7 +11,7 @@ public class Main {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Principal frame = new Principal();
+					Login frame = new Login();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
