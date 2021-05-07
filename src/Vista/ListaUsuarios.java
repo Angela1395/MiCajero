@@ -105,5 +105,7 @@ public class ListaUsuarios extends JFrame {
 		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel_1.setBounds(191, 10, 52, 13);
 		panel.add(lblNewLabel_1);
+		
+		this.setVisible(true);
 	}
 }

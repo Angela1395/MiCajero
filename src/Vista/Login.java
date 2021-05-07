@@ -16,6 +16,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JTextField;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JLabel;
 import javax.swing.JCheckBox;
 import java.awt.TextField;
@@ -23,6 +24,8 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.SystemColor;
 import javax.swing.JPasswordField;
+
+import Controlador.Central;
 
 public class Login extends JFrame {
 
@@ -106,10 +109,17 @@ public class Login extends JFrame {
 		
 		loginButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("Llamar al controlador con los datos del usuario");
+				// Recoger los datos de los input
 				String username = txtUsername.getText();
 				String password = txtPassword.getText();
-				System.out.println("Usuario: "+ username +" - Password: "+ password);
+				// Llamar al controlador para comprobar usuario
+				boolean correcto = new Central().comprobarUsuario(username, password);
+				// Controlar si es correcto o no
+				if(correcto) {
+					dispose(); // Cerrar la ventana sin cerrar la aplicacion
+				}else {
+					JOptionPane.showMessageDialog(null, "Usuario no valido");
+				}
 			}
 		});
 	}

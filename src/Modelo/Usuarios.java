@@ -8,16 +8,36 @@ import java.util.ArrayList;
 
 import BBDD.Conexion;
 import Beans.Usuario;
+
+
+
 public class Usuarios {
 
 	public void insertarUsuario(Usuario usuario) {
 			String username = usuario.getUsername();
 			String password = usuario.getPassword();
-			Conexion.ejecutarUpdate("insert into usuarios (username) values ('"+username+"');");
-			Conexion.ejecutarUpdate("insert into usuarios (password) values ('"+password+"');");
+			Conexion.ejecutarUpdate("insert into Usuario (username) values ('"+username+"');");
+			Conexion.ejecutarUpdate("insert into Usuario (password) values ('"+password+"');");
+	}
+	
+	public Usuario recogerUsuarioConContrasenia(String username, String password) {
+		ResultSet resultado = Conexion.ejecutarSentencia("select * from Usuario where username='"+username+"' AND password='"+password+"';");
+		try {
+			if(resultado.next()) {
+				int saldo = resultado.getInt("saldo");
+				String user = resultado.getString("username");
+				String pass = resultado.getString("password");
+				Usuario usuarioRecogido = new Usuario(user, pass, saldo);
+				return usuarioRecogido;
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
 		}
+		return null;
+	}
+	
 	public Usuario recogerUsuario(String usernameUsuario) {
-		ResultSet resultado = Conexion.ejecutarSentencia("select * from usuarios where username='"+usernameUsuario+"';");
+		ResultSet resultado = Conexion.ejecutarSentencia("select * from Usuario where username='"+usernameUsuario+"';");
 		try {
 			if(resultado.next()) {
 				int saldo = resultado.getInt("saldo");
@@ -31,9 +51,10 @@ public class Usuarios {
 		}
 		return null;
 	}
+	
 	public ArrayList<Usuario> recogerTodosUsuarios(){
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		ResultSet resultado = Conexion.ejecutarSentencia("SELECT * FROM usuarios;");
+		ResultSet resultado = Conexion.ejecutarSentencia("SELECT * FROM Usuario;");
 		try {
 			while(resultado.next()) {
 				int saldo = resultado.getInt("saldo");
