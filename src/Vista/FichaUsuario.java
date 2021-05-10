@@ -15,6 +15,7 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.border.BevelBorder;
+import javax.swing.ImageIcon;
 
 public class FichaUsuario extends JFrame {
 
@@ -50,7 +51,7 @@ public class FichaUsuario extends JFrame {
 		setContentPane(contentPane);
 		
 		JPanel panel = new JPanel();
-		panel.setBackground(new Color(240, 255, 255));
+		panel.setBackground(new Color(255, 250, 250));
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
@@ -82,17 +83,19 @@ public class FichaUsuario extends JFrame {
 		
 		JButton btnNewButton = new JButton("Ingreso");
 		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton.setBackground(new Color(253, 245, 230));
+		btnNewButton.setBackground(new Color(255, 250, 250));
 		btnNewButton.setBounds(52, 111, 85, 21);
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Gasto\r\n");
+		btnNewButton_1.setForeground(new Color(0, 0, 0));
 		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_1.setBackground(new Color(253, 245, 230));
+		btnNewButton_1.setBackground(new Color(255, 250, 250));
 		btnNewButton_1.setBounds(359, 111, 85, 21);
 		panel.add(btnNewButton_1);
 		
 		table = new JTable();
+		table.setBackground(new Color(240, 248, 255));
 		table.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 128), new Color(0, 0, 128), new Color(0, 0, 128), new Color(0, 0, 128)));
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
@@ -110,6 +113,12 @@ public class FichaUsuario extends JFrame {
 		));
 		table.setBounds(75, 178, 359, 128);
 		panel.add(table);
+		
+		JButton btnNewButton_1_1 = new JButton("");
+		btnNewButton_1_1.setIcon(new ImageIcon("C:\\Users\\Angela\\Desktop\\ADA DAW\\programacion 1\u00BA rep\\programacion 3 tr\\Cajero\\Captura de pantalla 2021-05-10 123225.png"));
+		btnNewButton_1_1.setForeground(new Color(255, 250, 250));
+		btnNewButton_1_1.setBounds(446, 0, 59, 66);
+		panel.add(btnNewButton_1_1);
 	}
 
 }

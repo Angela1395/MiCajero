@@ -21,4 +21,14 @@ public class Central {
 		return false;
 	}
 	
+	public boolean rellenarFormulario(String username, String password) {
+		// Llamar al formulario y rellenar
+		return true;
+	}
+	
+	public void abrirFormulario() {
+		// Llamar al formulario y rellenar
+		new Vista.FormularioUsuario();
+	}
+	
 }
