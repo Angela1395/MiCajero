@@ -23,8 +23,8 @@ import javax.swing.ImageIcon;
 public class FormularioUsuario extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField usernameField;
+	private JTextField passwordField;
 
 	/**
 	 * Launch the application.
@@ -70,21 +70,21 @@ public class FormularioUsuario extends JFrame {
 		lblNewLabel_1.setBounds(127, 135, 70, 13);
 		panel.add(lblNewLabel_1);
 		
-		JButton btnNewButton = new JButton("Crear");
-		btnNewButton.setBackground(new Color(255, 250, 250));
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
-		btnNewButton.setBounds(160, 198, 130, 28);
-		panel.add(btnNewButton);
+		JButton createButton = new JButton("Crear");
+		createButton.setBackground(new Color(255, 250, 250));
+		createButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
+		createButton.setBounds(160, 198, 130, 28);
+		panel.add(createButton);
 		
-		textField = new JTextField();
-		textField.setBounds(226, 78, 96, 19);
-		panel.add(textField);
-		textField.setColumns(10);
+		usernameField = new JTextField();
+		usernameField.setBounds(226, 78, 96, 19);
+		panel.add(usernameField);
+		usernameField.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(226, 132, 96, 19);
-		panel.add(textField_1);
-		textField_1.setColumns(10);
+		passwordField = new JTextField();
+		passwordField.setBounds(226, 132, 96, 19);
+		panel.add(passwordField);
+		passwordField.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("Inserte los datos del nuevo usuario");
 		lblNewLabel_2.setForeground(new Color(128, 0, 128));
@@ -101,7 +101,16 @@ public class FormularioUsuario extends JFrame {
 		
 		this.setVisible(true);
 		
-/* Acciones */
+		/* Acciones */
+		
+		createButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String username = usernameField.getText();
+				String password = passwordField.getText();
+				new Central().rellenarFormulario(username, password);
+				
+			}
+		});
 		
 		
 	}

@@ -16,8 +16,7 @@ public class Usuarios {
 	public void insertarUsuario(Usuario usuario) {
 			String username = usuario.getUsername();
 			String password = usuario.getPassword();
-			Conexion.ejecutarUpdate("insert into Usuario (username) values ('"+username+"');");
-			Conexion.ejecutarUpdate("insert into Usuario (password) values ('"+password+"');");
+			Conexion.ejecutarUpdate("insert into Usuario (username, password) values ('"+username+"', '"+password+"');");
 	}
 	
 	public Usuario recogerUsuarioConContrasenia(String username, String password) {
@@ -67,5 +66,6 @@ public class Usuarios {
 		}
 		return usuarios;
 	}
+	
 }
 

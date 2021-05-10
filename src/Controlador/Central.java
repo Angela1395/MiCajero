@@ -22,7 +22,10 @@ public class Central {
 	}
 	
 	public boolean rellenarFormulario(String username, String password) {
-		// Llamar al formulario y rellenar
+		// Llamar al modelo con los datos a insertar
+		Usuario usuario = new Usuario(username, password, 0);
+		new Usuarios().insertarUsuario(usuario);
+		
 		return true;
 	}
 	
