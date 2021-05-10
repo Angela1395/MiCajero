@@ -13,10 +13,14 @@ import javax.swing.UIManager;
 import java.awt.Color;
 import javax.swing.border.BevelBorder;
 import javax.swing.table.DefaultTableModel;
+
+import Beans.Usuario;
+
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 import Controlador.Central;
 
@@ -28,7 +32,7 @@ public class ListaUsuarios extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ListaUsuarios() {
+	public ListaUsuarios(ArrayList<Usuario> usuarios) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -42,27 +46,16 @@ public class ListaUsuarios extends JFrame {
 		panel.setLayout(null);
 		
 		Usuarios = new JTable();
-		Usuarios.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"New column", "New column"
-			}
-		));
+		DefaultTableModel dtm = new DefaultTableModel();
+		dtm.addColumn("nombre");
+		dtm.addColumn("saldo");
+		for(Usuario usuario: usuarios) {
+			Object[] fila = new Object[3];
+			fila[0] = usuario.getUsername();
+			fila[1] = usuario.getSaldo();
+			dtm.addRow(fila);			
+		}
+		Usuarios.setModel(dtm);
 		Usuarios.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 128), new Color(0, 0, 128), new Color(0, 0, 128), new Color(0, 0, 128)));
 		Usuarios.setBackground(new Color(248, 248, 255));
 		Usuarios.setColumnSelectionAllowed(true);

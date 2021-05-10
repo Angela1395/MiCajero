@@ -59,7 +59,7 @@ public class Usuarios {
 				int saldo = resultado.getInt("saldo");
 				String username = resultado.getString("username");
 				String password = resultado.getString("password");
-				usuarios.add(new Usuario(password, username, saldo));
+				usuarios.add(new Usuario(username, password, saldo));
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();

@@ -15,7 +15,8 @@ public class Central {
 		// Llamar al modelo para coger los datos de la base de datos
 		Usuario usuario = new Usuarios().recogerUsuarioConContrasenia(username, password);
 		if(usuario != null) {
-			new ListaUsuarios(); // Abrir la nueva ventana
+			ArrayList<Usuario> usuarios = new Usuarios().recogerTodosUsuarios();
+			new ListaUsuarios(usuarios); // Abrir la nueva ventana
 			return true;
 		}
 		return false;
