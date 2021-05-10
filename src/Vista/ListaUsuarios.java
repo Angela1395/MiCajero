@@ -16,6 +16,9 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import Controlador.Central;
 
 public class ListaUsuarios extends JFrame {
 
@@ -66,12 +69,12 @@ public class ListaUsuarios extends JFrame {
 		Usuarios.setBounds(20, 33, 266, 193);
 		panel.add(Usuarios);
 		
-		JButton btnNewButton = new JButton("Ver");
-		btnNewButton.setBackground(new Color(255, 250, 250));
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
-		btnNewButton.setForeground(new Color(0, 0, 0));
-		btnNewButton.setBounds(317, 174, 85, 21);
-		panel.add(btnNewButton);
+		JButton VerButton = new JButton("Ver");
+		VerButton.setBackground(new Color(255, 250, 250));
+		VerButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
+		VerButton.setForeground(new Color(0, 0, 0));
+		VerButton.setBounds(317, 174, 85, 21);
+		panel.add(VerButton);
 		
 		JButton btnNewButton_1 = new JButton("Borrar");
 		btnNewButton_1.setBackground(new Color(255, 250, 250));
@@ -101,5 +104,13 @@ public class ListaUsuarios extends JFrame {
 		panel.add(btnNewButton_1_1);
 		
 		this.setVisible(true);
+	
+		/* Acciones */
+		VerButton.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
+			new Central().abrirFicha();
+		}
+	});
 	}
+	
 }

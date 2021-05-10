@@ -103,6 +103,8 @@ public class FichaUsuario extends JFrame {
 		btnNewButton_1_1.setForeground(new Color(255, 250, 250));
 		btnNewButton_1_1.setBounds(446, 0, 59, 66);
 		panel.add(btnNewButton_1_1);
+		
+		this.setVisible(true);
 	}
 
 }

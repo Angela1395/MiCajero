@@ -32,4 +32,8 @@ public class Central {
 		new Vista.FormularioUsuario();
 	}
 	
+	public void abrirFicha() {
+		// llamar la ficha del usuario
+		new Vista.FichaUsuario();
+	}
 }
