@@ -13,10 +13,10 @@ import Beans.Usuario;
 
 public class Usuarios {
 
-	public void insertarUsuario(Usuario usuario) {
+	public boolean insertarUsuario(Usuario usuario) {
 			String username = usuario.getUsername();
 			String password = usuario.getPassword();
-			Conexion.ejecutarUpdate("insert into Usuario (username, password) values ('"+username+"', '"+password+"');");
+			return Conexion.ejecutarUpdate("insert into Usuario (username, password) values ('"+username+"', '"+password+"');");
 	}
 	
 	public Usuario recogerUsuarioConContrasenia(String username, String password) {

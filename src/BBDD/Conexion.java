@@ -38,13 +38,15 @@ public class Conexion {
 	      return resultado;
 	    }
 	      
-	    public static void ejecutarUpdate(String sentencia){
+	    public static boolean ejecutarUpdate(String sentencia){
 	    	try{
 	    		consulta.executeUpdate(sentencia);
 	    		System.out.println("Done: " + sentencia);
+	    		return true;
 	    	}catch(SQLException e){
 	    		JOptionPane.showMessageDialog(null, e.getMessage());
-	        System.out.println("Error: " + sentencia);
+		        System.out.println("Error: " + sentencia);
+		        return false;
 	    	} 
 	    }
 	    

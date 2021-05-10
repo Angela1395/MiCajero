@@ -91,7 +91,10 @@ public class FormularioUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				String username = usernameField.getText();
 				String password = passwordField.getText();
-				new Central().rellenarFormulario(username, password);
+				boolean creado = new Central().rellenarFormulario(username, password);
+				if(creado) {
+					dispose();
+				}
 				
 			}
 		});
