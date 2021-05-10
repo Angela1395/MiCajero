@@ -54,7 +54,7 @@ public class Usuarios {
 	
 	public ArrayList<Usuario> recogerTodosUsuarios(){
 		ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
-		ResultSet resultado = Conexion.ejecutarSentencia("SELECT * FROM Usuario;");
+		ResultSet resultado = Conexion.ejecutarSentencia("SELECT * FROM Usuario	;");
 		try {
 			while(resultado.next()) {
 				int saldo = resultado.getInt("saldo");
