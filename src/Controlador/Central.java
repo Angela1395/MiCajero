@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import BBDD.Conexion;
+import Beans.Movimiento;
 import Beans.Usuario;
+import Modelo.Movimientos;
 import Modelo.Usuarios;
 import Vista.ListaUsuarios;
 
@@ -34,8 +36,8 @@ public class Central {
 	}
 	
 	public void abrirFicha(Usuario usuario) {
-		// Pedir los movimientos a la bbbdd
-		new Vista.FichaUsuario(usuario, null);
+		ArrayList<Movimiento> movimientos = new Movimientos().recogerMovimientosUsuario(usuario);
+		new Vista.FichaUsuario(usuario, movimientos);
 	}
 	
 }

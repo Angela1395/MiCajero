@@ -88,22 +88,16 @@ public class FichaUsuario extends JFrame {
 		panel.add(btnNewButton_1);
 		
 		table = new JTable();
-		table.setBackground(new Color(240, 248, 255));
-		table.setBorder(new BevelBorder(BevelBorder.LOWERED, new Color(0, 0, 128), new Color(0, 0, 128), new Color(0, 0, 128), new Color(0, 0, 128)));
-		table.setModel(new DefaultTableModel(
-			new Object[][] {
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-				{null, null},
-			},
-			new String[] {
-				"New column", "New column"
-			}
-		));
+		DefaultTableModel dtm = new DefaultTableModel();
+		dtm.addColumn("fecha");
+		dtm.addColumn("saldo");
+		for(Movimiento movimiento: movimientos) {
+			Object[] fila = new Object[3];
+			fila[0] = movimiento.getFecha();
+			fila[1] = movimiento.getIngreso();
+			dtm.addRow(fila);			
+		}
+		table.setModel(dtm);
 		table.setBounds(75, 178, 359, 128);
 		panel.add(table);
 		

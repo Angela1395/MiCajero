@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 import BBDD.Conexion;
 import Beans.Movimiento;
+import Beans.Usuario;
 
 public class Movimientos {
 	
@@ -41,6 +42,22 @@ public class Movimientos {
 				String usuario = resultado.getString("usuario");
 				Date fecha = resultado.getDate("fecha");
 				movimientos.add(new Movimiento(usuario, fecha, ingreso));
+			}
+		}catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return movimientos;
+	}
+	
+	public ArrayList<Movimiento> recogerMovimientosUsuario(Usuario usuario){
+		ArrayList<Movimiento> movimientos = new ArrayList<Movimiento>();
+		ResultSet resultado = Conexion.ejecutarSentencia("SELECT * FROM Movimientos WHERE Usuario='"+usuario.getUsername()+"'");
+		try {
+			while(resultado.next()) {
+				String user = resultado.getString("Usuario");
+				Date fecha = resultado.getDate("Fecha");
+				int saldo = resultado.getInt("Saldo");
+				movimientos.add(new Movimiento(user, fecha, saldo));
 			}
 		}catch (SQLException e) {
 			e.printStackTrace();
