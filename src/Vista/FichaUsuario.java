@@ -54,19 +54,19 @@ public class FichaUsuario extends JFrame {
 		lblNewLabel.setBounds(0, 27, 495, 26);
 		panel.add(lblNewLabel);
 		
-		JLabel lblNewLabel_1 = new JLabel("X \u20AC");
-		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 19));
-		lblNewLabel_1.setForeground(new Color(0, 128, 0));
-		lblNewLabel_1.setBounds(75, 55, 111, 35);
-		panel.add(lblNewLabel_1);
+		JLabel labelIngreso = new JLabel("X \u20AC");
+		labelIngreso.setHorizontalAlignment(SwingConstants.CENTER);
+		labelIngreso.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		labelIngreso.setForeground(new Color(0, 128, 0));
+		labelIngreso.setBounds(75, 55, 111, 35);
+		panel.add(labelIngreso);
 		
-		JLabel lblNewLabel_2 = new JLabel("X \u20AC");
-		lblNewLabel_2.setHorizontalAlignment(SwingConstants.CENTER);
-		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 19));
-		lblNewLabel_2.setForeground(new Color(255, 0, 0));
-		lblNewLabel_2.setBounds(313, 46, 131, 54);
-		panel.add(lblNewLabel_2);
+		JLabel labelGasto = new JLabel("X \u20AC");
+		labelGasto.setHorizontalAlignment(SwingConstants.CENTER);
+		labelGasto.setFont(new Font("Times New Roman", Font.PLAIN, 19));
+		labelGasto.setForeground(new Color(255, 0, 0));
+		labelGasto.setBounds(313, 46, 131, 54);
+		panel.add(labelGasto);
 		
 		textField = new JTextField();
 		textField.setHorizontalAlignment(SwingConstants.CENTER);
@@ -108,6 +108,22 @@ public class FichaUsuario extends JFrame {
 		panel.add(btnNewButton_1_1);
 		
 		this.setVisible(true);
+		
+		/* OPERACIONES */
+		
+		int ingreso = 0;
+		int gasto = 0;
+		for(Movimiento movimiento: movimientos) {
+			int saldo = movimiento.getIngreso();
+			if(saldo > 0) {
+				ingreso += saldo;
+			}else {
+				gasto += saldo;
+			}
+		}
+		labelIngreso.setText(ingreso + " \u20AC");
+		labelGasto.setText(gasto + " \u20AC");
+		
 	}
 
 }
