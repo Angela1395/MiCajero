@@ -9,13 +9,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import java.util.ArrayList;
+
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import Beans.Movimiento;
+import Beans.Usuario;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FichaUsuario extends JFrame {
 
@@ -26,7 +34,8 @@ public class FichaUsuario extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public FichaUsuario() {
+	public FichaUsuario(Usuario usuario, ArrayList<Movimiento> movimientos) {
+		setTitle(usuario.getUsername());
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 529, 382);
 		contentPane = new JPanel();
@@ -39,7 +48,7 @@ public class FichaUsuario extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("X \u20AC");
+		JLabel lblNewLabel = new JLabel(usuario.getSaldo() + " \u20AC");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
 		lblNewLabel.setBounds(0, 27, 495, 26);

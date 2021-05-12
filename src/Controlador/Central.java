@@ -33,8 +33,9 @@ public class Central {
 		new Vista.FormularioUsuario();
 	}
 	
-	public void abrirFicha() {
-		// llamar la ficha del usuario
-		new Vista.FichaUsuario();
+	public void abrirFicha(Usuario usuario) {
+		// Pedir los movimientos a la bbbdd
+		new Vista.FichaUsuario(usuario, null);
 	}
+	
 }

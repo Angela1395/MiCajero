@@ -61,7 +61,7 @@ public class ListaUsuarios extends JFrame {
 		Usuarios.setColumnSelectionAllowed(true);
 		Usuarios.setBounds(20, 33, 266, 193);
 		panel.add(Usuarios);
-		
+
 		JButton VerButton = new JButton("Ver");
 		VerButton.setBackground(new Color(255, 250, 250));
 		VerButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
@@ -101,7 +101,9 @@ public class ListaUsuarios extends JFrame {
 		/* Acciones */
 		VerButton.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			new Central().abrirFicha();
+			int i = Usuarios.getSelectedRow(); // Numero de la fila seleccionada
+			Usuario usuario = usuarios.get(i);
+			new Central().abrirFicha(usuario);
 		}
 	});
 	}
