@@ -12,10 +12,11 @@ import Beans.Usuario;
 public class Movimientos {
 	
 	public void insertarMovimiento(Movimiento movimiento) {
-	String usuario = movimiento.getUsuario();
-	Date fecha = movimiento.getFecha();
-	
-	Conexion.ejecutarUpdate("insert into movimientos (usuario) values ('"+usuario+"');");
+		String usuario = movimiento.getUsuario();
+		Date fecha = movimiento.getFecha();
+		int saldo = movimiento.getIngreso();
+		
+		Conexion.ejecutarUpdate("insert into Movimientos (Usuario, Fecha, Saldo) values ('"+usuario+"', '" + fecha.toString() + "', "+saldo+");");
 	}
 	public Movimiento recogerMovimiento(String usuarioMovimiento) {
 		ResultSet resultado = Conexion.ejecutarSentencia("select * from movimientos where username='"+usuarioMovimiento+"';");

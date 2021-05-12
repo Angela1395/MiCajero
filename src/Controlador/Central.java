@@ -40,4 +40,11 @@ public class Central {
 		new Vista.FichaUsuario(usuario, movimientos);
 	}
 	
+	public void realizarIngreso(Usuario usuario, int saldo) {
+		String username = usuario.getUsername();
+		Date fecha = new Date(System.currentTimeMillis());
+		Movimiento movimiento = new Movimiento(username, fecha, saldo);
+		new Movimientos().insertarMovimiento(movimiento);
+	}
+	
 }

@@ -19,6 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 import Beans.Movimiento;
 import Beans.Usuario;
+import Controlador.Central;
 
 import javax.swing.border.BevelBorder;
 import javax.swing.ImageIcon;
@@ -74,11 +75,11 @@ public class FichaUsuario extends JFrame {
 		panel.add(textField);
 		textField.setColumns(10);
 		
-		JButton btnNewButton = new JButton("Ingreso");
-		btnNewButton.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton.setBackground(new Color(255, 250, 250));
-		btnNewButton.setBounds(52, 111, 85, 21);
-		panel.add(btnNewButton);
+		JButton botonIngreso = new JButton("Ingreso");
+		botonIngreso.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		botonIngreso.setBackground(new Color(255, 250, 250));
+		botonIngreso.setBounds(52, 111, 85, 21);
+		panel.add(botonIngreso);
 		
 		JButton btnNewButton_1 = new JButton("Gasto\r\n");
 		btnNewButton_1.setForeground(new Color(0, 0, 0));
@@ -124,6 +125,15 @@ public class FichaUsuario extends JFrame {
 		labelIngreso.setText(ingreso + " \u20AC");
 		labelGasto.setText(gasto + " \u20AC");
 		
+		
+		/* ACCIONES */
+		
+		botonIngreso.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int saldo = Integer.parseInt(textField.getText());
+				new Central().realizarIngreso(usuario, saldo);
+			}
+		});
 	}
 
 }
