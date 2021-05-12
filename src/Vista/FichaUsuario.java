@@ -10,6 +10,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import java.util.ArrayList;
+import java.sql.Date;
 
 import javax.swing.SwingConstants;
 import javax.swing.JTextField;
@@ -31,6 +32,8 @@ public class FichaUsuario extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
+	int ingreso = 0;
+	int gasto = 0;
 
 	/**
 	 * Create the frame.
@@ -112,8 +115,6 @@ public class FichaUsuario extends JFrame {
 		
 		/* OPERACIONES */
 		
-		int ingreso = 0;
-		int gasto = 0;
 		for(Movimiento movimiento: movimientos) {
 			int saldo = movimiento.getIngreso();
 			if(saldo > 0) {
@@ -132,6 +133,12 @@ public class FichaUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				int saldo = Integer.parseInt(textField.getText());
 				new Central().realizarIngreso(usuario, saldo);
+				Object[] fila = new Object[2];
+				fila[0] = (new Date(System.currentTimeMillis())).toString();
+				fila[1] = saldo;
+				dtm.addRow(fila);
+				ingreso += saldo;
+				labelIngreso.setText(ingreso + " \u20AC");
 			}
 		});
 	}
