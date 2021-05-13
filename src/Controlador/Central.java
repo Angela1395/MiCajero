@@ -47,4 +47,10 @@ public class Central {
 		new Movimientos().insertarMovimiento(movimiento);
 	}
 	
+	public void realizarGasto(Usuario usuario, int saldo) {
+		String username = usuario.getUsername();
+		Date fecha = new Date(System.currentTimeMillis());
+		Movimiento movimiento = new Movimiento(username, fecha, saldo);
+		new Movimientos().insertarMovimiento(movimiento);
+	}
 }

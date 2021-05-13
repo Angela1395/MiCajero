@@ -84,12 +84,12 @@ public class FichaUsuario extends JFrame {
 		botonIngreso.setBounds(52, 111, 85, 21);
 		panel.add(botonIngreso);
 		
-		JButton btnNewButton_1 = new JButton("Gasto\r\n");
-		btnNewButton_1.setForeground(new Color(0, 0, 0));
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD, 12));
-		btnNewButton_1.setBackground(new Color(255, 250, 250));
-		btnNewButton_1.setBounds(359, 111, 85, 21);
-		panel.add(btnNewButton_1);
+		JButton botonGasto = new JButton("Gasto\r\n");
+		botonGasto.setForeground(new Color(0, 0, 0));
+		botonGasto.setFont(new Font("Times New Roman", Font.BOLD, 12));
+		botonGasto.setBackground(new Color(255, 250, 250));
+		botonGasto.setBounds(359, 111, 85, 21);
+		panel.add(botonGasto);
 		
 		table = new JTable();
 		DefaultTableModel dtm = new DefaultTableModel();
@@ -139,6 +139,19 @@ public class FichaUsuario extends JFrame {
 				dtm.addRow(fila);
 				ingreso += saldo;
 				labelIngreso.setText(ingreso + " \u20AC");
+			}
+		});
+		
+		botonGasto.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int saldo = Integer.parseInt(textField.getText());
+				new Central().realizarGasto(usuario, saldo);
+				Object[] fila = new Object[2];
+				fila[0] = (new Date(System.currentTimeMillis())).toString();
+				fila[1] = saldo;
+				dtm.addRow(fila);
+				saldo += saldo;
+				labelGasto.setText(gasto + " \u20AC");
 			}
 		});
 	}
