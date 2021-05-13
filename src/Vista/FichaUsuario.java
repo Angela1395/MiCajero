@@ -52,7 +52,7 @@ public class FichaUsuario extends JFrame {
 		contentPane.add(panel, BorderLayout.CENTER);
 		panel.setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel(usuario.getSaldo() + " \u20AC");
+		JLabel lblNewLabel = new JLabel(usuario.getSaldo() +  " \u20AC");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 24));
 		lblNewLabel.setBounds(0, 27, 495, 26);
@@ -122,6 +122,7 @@ public class FichaUsuario extends JFrame {
 			}else {
 				gasto += saldo;
 			}
+			
 		}
 		labelIngreso.setText(ingreso + " \u20AC");
 		labelGasto.setText(gasto + " \u20AC");

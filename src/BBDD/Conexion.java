@@ -50,6 +50,17 @@ public class Conexion {
 	    	} 
 	    }
 	    
+	    public static void EjecutarUpdateEliminar(String Sentencia){
+	        try{
+	            consulta.executeUpdate(Sentencia);
+	            JOptionPane.showMessageDialog(null, "Se ha eliminado correctamente.");
+	            System.out.println("Done.");
+	        }catch(SQLException e){
+	            JOptionPane.showMessageDialog(null, e.getMessage());
+	            JOptionPane.showMessageDialog(null, "No se ha eliminado.");
+	        } 
+	    }
+	    
 	    public static void cerrar(){
 	      try{
 	        consulta.close();

@@ -24,6 +24,10 @@ public class Central {
 		return false;
 	}
 	
+	public void eliminar(Usuario usuario) {
+		Conexion.EjecutarUpdateEliminar("delete from Usuario where Usuario username = "+usuario+";");
+	}
+	
 	public boolean rellenarFormulario(String username, String password) {
 		// Llamar al modelo con los datos a insertar
 		Usuario usuario = new Usuario(username, password, 0);

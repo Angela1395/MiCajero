@@ -69,11 +69,11 @@ public class ListaUsuarios extends JFrame {
 		VerButton.setBounds(317, 174, 85, 21);
 		panel.add(VerButton);
 		
-		JButton btnNewButton_1 = new JButton("Borrar");
-		btnNewButton_1.setBackground(new Color(255, 250, 250));
-		btnNewButton_1.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
-		btnNewButton_1.setBounds(317, 205, 85, 21);
-		panel.add(btnNewButton_1);
+		JButton EliminarButton = new JButton("Borrar");
+		EliminarButton.setBackground(new Color(255, 250, 250));
+		EliminarButton.setFont(new Font("Times New Roman", Font.BOLD | Font.ITALIC, 12));
+		EliminarButton.setBounds(317, 205, 85, 21);
+		panel.add(EliminarButton);
 		
 		JLabel lblNewLabel = new JLabel("Nombre");
 		lblNewLabel.setForeground(new Color(128, 0, 128));
@@ -104,8 +104,17 @@ public class ListaUsuarios extends JFrame {
 			int i = Usuarios.getSelectedRow(); // Numero de la fila seleccionada
 			Usuario usuario = usuarios.get(i);
 			new Central().abrirFicha(usuario);
-		}
-	});
+			}
+		});
+		
+		EliminarButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				int i = Usuarios.getSelectedRow(); // Numero de la fila seleccionada
+				Usuario usuario = usuarios.get(i);
+				new Central().eliminar(usuario);
+			}
+		});
+		
 	}
 	
 }
