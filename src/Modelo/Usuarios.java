@@ -66,6 +66,12 @@ public class Usuarios {
 		}
 		return usuarios;
 	}
+
+	public void eliminarUsuario(Usuario usuario) {
+		String username = usuario.getUsername();
+		Conexion.ejecutarUpdate("delete from Usuario where username = '"+username+"';");
+		
+	}
 	
 }
 

@@ -25,7 +25,7 @@ public class Central {
 	}
 	
 	public void eliminar(Usuario usuario) {
-		Conexion.EjecutarUpdateEliminar("delete from Usuario where Usuario username = "+usuario+";");
+		new Usuarios().eliminarUsuario(usuario);
 	}
 	
 	public boolean rellenarFormulario(String username, String password) {
