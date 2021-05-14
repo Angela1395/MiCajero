@@ -1,7 +1,7 @@
 # MiCajero
 
- En est· aplicaciÛn, los clientes podr·n darse de alta con un usuario y una contraseÒa. En una base de datos con el saldo actual de su cuenta, los gastos del mes e ingresos.
-TambiÈn podr· sacar o intruducir dinero en la cuenta de forma digital. 
+ En est√° aplicaci√≥n, los clientes podr√°n darse de alta con un usuario y una contrase√±a. En una base de datos con el saldo actual de su cuenta, los gastos del mes e ingresos.
+Tambi√©n podr√° sacar o intruducir dinero en la cuenta de forma digital. 
  
  
  # Logo de la empresa
@@ -11,3 +11,5 @@ TambiÈn podr· sacar o intruducir dinero en la cuenta de forma digital.
 
 
 # Diagrama del Banco 
+
+![Diagrama Banco](https://user-images.githubusercontent.com/56442937/118253723-898b9b80-b4aa-11eb-946c-dd0b8cdf6101.png)
